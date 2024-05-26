@@ -2,6 +2,7 @@ package br.com.diegopatricio.servicex.categoria.services;
 
 import br.com.diegopatricio.servicex.categoria.domain.Categoria;
 import br.com.diegopatricio.servicex.categoria.domain.CategoriaDTO;
+import br.com.diegopatricio.servicex.categoria.domain.CategoriaDTOResponse;
 import br.com.diegopatricio.servicex.categoria.repositories.CategoriaRepository;
 import br.com.diegopatricio.servicex.exceptios.NomeCategoriaJaExistenteException;
 import br.com.diegopatricio.servicex.exceptios.ObjectNotFoundException;
@@ -47,6 +48,12 @@ public class CategoriaService {
         return new Categoria(categoriaDTO.getIdCategoria(), categoriaDTO.getNomeCategoria());
 
     }
+    public Categoria fromDTOResponse(CategoriaDTOResponse responseDTO) {
+        Categoria categoria = new Categoria();
+        categoria.setNomeCategoria(responseDTO.getNomeCategoria());
+        return categoria;
+    }
+
     private void updateData(Categoria novaCategoria, Categoria categoria){
         novaCategoria.setNomeCategoria(categoria.getNomeCategoria());
     }
