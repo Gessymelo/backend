@@ -50,8 +50,8 @@ public class OrdemServicoResource {
     }
 
     @DeleteMapping("/{idOrdemServico}")
-    public ResponseEntity<Void> deletarOrdemServico(@PathVariable Integer idCategoria) {
-        ordemServicoService.deletarOrdemServico(idCategoria);
+    public ResponseEntity<Void> deletarOrdemServico(@PathVariable Integer idOrdemServico) {
+        ordemServicoService.deletarOrdemServico(idOrdemServico);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 }
